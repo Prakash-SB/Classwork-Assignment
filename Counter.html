@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.min.js"></script>
+</head>
+<body class="bg-black h-full w-full">
+
+    <div class="2xl:container mx-auto m-12">
+        <div class="w-[80%] mx-auto flex flex-col gap-10 items-center justify-center h-[100vh]">
+            <div class="flex flex-col gap-5">
+            <h1 class="text-white font-extrabold text-7xl grid justify-center bg-[] rounded-full">Counter Project</h1>
+            <h2 id="h" class="text-white text-[100px] font-bold text-center circle">0</h1></div>
+            <div class="flex gap-5 justify-center">
+            <button  id="DecBtn" class="text-white font-bold text-xl border border-white px-5 py-3 rounded-lg hover:bg-white hover:border-black hover:text-black hover:drop-shadow-sm">Decrease</button>
+            <button  id="ResBtn" class="text-white font-bold border text-xl border-white px-5 py-3 rounded-lg hover:bg-white hover:border-black hover:text-black hover:drop-shadow-sm ">Reset</button>
+            <button  id="IncBtn" class="text-white font-bold border text-xl border-white px-5 py-3 rounded-lg hover:bg-white hover:border-black hover:text-black hover:drop-shadow-sm ">Increase</button>
+        </div>
+        </div>
+    </div>
+    
+    
+    <script>
+
+        var DecBtn = document.getElementById("DecBtn");
+        var h = document.getElementById("h");
+        var ResBtn = document.getElementById("ResBtn");
+        var IncBtn = document.getElementById("IncBtn");
+
+        DecBtn.addEventListener("click", ()=>{
+            h.textContent = h.textContent-"1";
+            asd()
+        })
+        ResBtn.addEventListener("click",()=>{
+            h.textContent = 0;
+            asd()
+        })
+        IncBtn.addEventListener("click",()=>{
+            h.textContent = Number(h.textContent)+Number(1);
+            asd()
+        })
+        
+        function asd(){  
+            var a = Number(h.textContent)      
+        if(a < 0){
+            h.style.color = "red";
+        }
+        else if(a > 0){
+            h.style.color = "green";
+        }
+        else{
+            h.style.color = "white ";
+        }
+        }
+        const options = {
+  grid: [13, 13],
+  from: 'center',
+};
+
+createTimeline()
+  .add('.dot', {
+    scale: stagger([1.1, .75], options),
+    ease: 'inOutQuad',
+  }, stagger(200, options));
+
+
+    </script>
+</body>
+</html>
